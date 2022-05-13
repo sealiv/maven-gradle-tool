@@ -11,6 +11,10 @@ subprojects {
     }
 }
 
+wrapper {
+    gradleVersion = '7.4.2'
+}
+
 task getWar(type: Copy) {
     doFirst {
         println "Copy war-file to project folder ($rootProject)"
