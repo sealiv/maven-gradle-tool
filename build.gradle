@@ -1,0 +1,23 @@
+allprojects {
+    version = '1.0.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+task getWar(type: Copy) {
+    doFirst {
+        println "Copy war-file to project folder ($rootProject)"
+    }
+    from "web/build/libs"
+    into "."
+    include "*.war"
+}
+
+getWar.dependsOn ':web:build'

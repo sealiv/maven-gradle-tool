@@ -1,0 +1,10 @@
+/shelf/
+/workspace.xml
+.gradle/
+.idea/
+*.war
+gradle/
+gradlew
+gradlew.bat
+**/build/
+

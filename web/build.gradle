@@ -1,0 +1,17 @@
+plugins {
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':services')
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'junit:junit:4.12'
+}
+
+war {
+    archiveBaseName = 'builders-web'
+}

@@ -1,0 +1,19 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'com.builders.admin.AdminEntryPoint'
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':services')
+    testImplementation 'junit:junit:4.12'
+}
+
+test {
+    useJUnit()
+}
