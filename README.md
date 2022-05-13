@@ -6,7 +6,7 @@ Project to learn 'Gradle' and 'Maven' building tools
 ### Build and Run application
 ```shell script
 # Clone project
-git clone https://github.com/sealiv/builders.git
+git clone https://github.com/sealiv/maven-gradle-tool.git
 
 # download gradle wrapper
 gradle wrapper
@@ -35,7 +35,7 @@ ___
 ### Build and Run application
 ```shell script
 # Clone project
-git clone https://github.com/sealiv/builders.git
+git clone https://github.com/sealiv/maven-gradle-tool.git
 
 # build project
 mvn clean package
