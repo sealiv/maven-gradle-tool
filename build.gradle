@@ -1,9 +1,12 @@
+apply from: 'getversion.gradle'
+
 allprojects {
     version = '1.0.0'
 }
 
 subprojects {
     apply plugin: 'java'
+    apply from: '../getversion.gradle'
 
     java {
         sourceCompatibility = JavaVersion.VERSION_11

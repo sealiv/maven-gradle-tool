@@ -1,0 +1,10 @@
+task getVersion {
+    def env = 'LOCAL'
+    if (project.hasProperty("envDescription") && project.getProperty("envDescription") == 'RELEASE') {
+        env = 'RELEASE'
+    }
+    def props = new Properties()
+    new File("gradle.properties").withInputStream { props.load(it) }
+    
+    version = "$majorVersion.$minorVersion-$env"
+}

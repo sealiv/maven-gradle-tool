@@ -11,8 +11,16 @@ git clone https://github.com/sealiv/maven-gradle-tool.git
 # download gradle wrapper
 gradle wrapper
 
-# build project
-gradlew clean build instalDist
+# build project with default version
+gradlew clean build
+
+# build project with auto-generated version and environment = 'LOCALE'
+# plugin 'getversion.gradle' must be uncommented on 'build.gradle' in line #1 and #9
+gradlew clean build
+
+# build project with auto-generated version and environment = 'RELEASE' for Jenkins 
+# plugin 'getversion.gradle' must be uncommented on 'build.gradle' in line #1 and #9
+gradlew clean build -PenvDescription=RELEASE
 
 # run Admin service
 gradlew run 
@@ -25,9 +33,10 @@ gradlew getWar
 ```
 
 ### Run war-module
-1. copy war-file ('builders-web-1.0.0.war') to a {tomcat_install_dir}/webapps/
+1. copy war-file ('builders-web-{majorVersion}.{minorVersion}-{envDescription}.war') to a {tomcat_install_dir}/webapps/
 2. run tomcat-server ({tomcat_install_dir}/bin/startup.bat)
-3. open in your browser https://localhost/builders-web-1.0.0
+3. open in your browser https://localhost/builders-web-{majorVersion}.{minorVersion}-{envDescription}
+4. majorVersion and minorVersion you can find in gradle.properties, envDescription can be one of two values: 'RELEASE' or 'LOCAL'
 
 ___
 
