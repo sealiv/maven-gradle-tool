@@ -1,4 +1,4 @@
-apply from: 'getversion.gradle'
+apply plugin: GetVersion
 
 allprojects {
     version = '1.0.0'
@@ -6,7 +6,7 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply from: '../getversion.gradle'
+    apply plugin: GetVersion
 
     java {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -28,3 +28,17 @@ task getWar(type: Copy) {
 }
 
 getWar.dependsOn ':web:build'
+
+class GetVersion implements Plugin<Project> {
+    void apply(Project project) {
+        def env = 'LOCAL'
+        if (project.hasProperty("envDescription") && project.getProperty("envDescription") == 'RELEASE') {
+            env = 'RELEASE'
+        }
+        def props = new Properties()
+        new File("gradle.properties").withInputStream { props.load(it) }
+        def majorVersion = props.getProperty("majorVersion")
+        def minorVersion = props.getProperty("minorVersion")
+        project.version = "$majorVersion.$minorVersion-$env"
+    }
+}
