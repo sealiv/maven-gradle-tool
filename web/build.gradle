@@ -1,17 +1,21 @@
-plugins {
-    id 'war'
-}
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'war'
+apply plugin: "groovy"
 
 dependencies {
     implementation project(':services')
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
-    testImplementation 'junit:junit:4.12'
+    implementation 'org.codehaus.groovy:groovy:3.0.10'
+    testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
 }
 
 war {
-    archiveBaseName = 'builders-web'
+    it.archiveBaseName = 'builders-web'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

@@ -1,19 +1,20 @@
-plugins {
-    id 'application'
-}
+apply plugin: 'application'
+apply plugin: "groovy"
 
 application {
     mainClass = 'com.builders.admin.AdminEntryPoint'
 }
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     implementation project(':services')
-    testImplementation 'junit:junit:4.12'
+    implementation 'org.codehaus.groovy:groovy:3.0.10'
+    testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
 }
 
 test {
-    useJUnit()
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
