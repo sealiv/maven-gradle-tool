@@ -7,6 +7,7 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: GetVersion
+    apply plugin: "groovy"
 
     java {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -15,6 +16,18 @@ subprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.codehaus.groovy:groovy:3.0.10'
+        testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
+        testImplementation "org.spockframework:spock-core"
+    }
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
     }
 }
 

@@ -1,5 +1,4 @@
 apply plugin: 'application'
-apply plugin: "groovy"
 
 application {
     mainClass = 'com.builders.admin.AdminEntryPoint'
@@ -7,14 +6,4 @@ application {
 
 dependencies {
     implementation project(':services')
-    implementation 'org.codehaus.groovy:groovy:3.0.10'
-    testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
-    testImplementation "org.spockframework:spock-core"
-}
-
-test {
-    useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
 }
