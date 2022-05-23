@@ -46,7 +46,9 @@
                         <manifestEntries>
                             <Class-Path>
                                 ../../services/target/services-1.0.0.jar
+                                ../services/services-1.0.0.jar
                                 ../../utils/target/utils-1.0.0.jar
+                                ../utils/utils-1.0.0.jar
                             </Class-Path>
                         </manifestEntries>
                     </archive>

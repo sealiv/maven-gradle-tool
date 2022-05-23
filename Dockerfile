@@ -21,4 +21,4 @@ COPY --from=MAVEN_BUILD /utils/** /utils/
 COPY --from=MAVEN_BUILD /web/** /web/
 
 # set the startup command to execute the jar
-CMD ["java", "-jar", "/admin/target/admin-1.0.0.jar"]
+CMD ["java", "-jar", "/admin/admin-1.0.0.jar"]

@@ -12,7 +12,7 @@ pipeline {
             agent { docker 'openjdk:11.0.7-jdk-slim' }
             steps {
                 echo 'Hello, JDK'
-                sh 'java -jar admin/target/admin-1.0.0.jar'
+                sh 'java -jar admin/admin-1.0.0.jar'
             }
         }
     }
