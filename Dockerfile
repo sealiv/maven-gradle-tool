@@ -11,6 +11,10 @@ RUN mvn clean package
 FROM openjdk:11.0.7-jdk-slim
 
 # copy only the artifacts we need from the first stage and discard the rest
+RUN mkdir /admin
+RUN mkdir /services
+RUN mkdir /utils
+RUN mkdir /web
 COPY --from=MAVEN_BUILD /admin/* /admin/*
 COPY --from=MAVEN_BUILD /services/* /services/*
 COPY --from=MAVEN_BUILD /utils/* /utils/*
