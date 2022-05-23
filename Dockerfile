@@ -11,7 +11,10 @@ RUN mvn clean package
 FROM openjdk:11.0.7-jdk-slim
 
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --from=MAVEN_BUILD /admin/target/admin-1.0.0.jar /admin-1.0.0.jar
+COPY --from=MAVEN_BUILD /admin/* /admin/*
+COPY --from=MAVEN_BUILD /services/* /services/*
+COPY --from=MAVEN_BUILD /utils/* /utils/*
+COPY --from=MAVEN_BUILD /web/* /web/*
 
 # set the startup command to execute the jar
-CMD ["java", "-jar", "/admin-1.0.0.jar"]
+CMD ["java", "-jar", "/admin/target/admin-1.0.0.jar"]
