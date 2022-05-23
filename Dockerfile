@@ -15,10 +15,10 @@ RUN mkdir /admin
 RUN mkdir /services
 RUN mkdir /utils
 RUN mkdir /web
-COPY --from=MAVEN_BUILD /admin/* /admin/*
-COPY --from=MAVEN_BUILD /services/* /services/*
-COPY --from=MAVEN_BUILD /utils/* /utils/*
-COPY --from=MAVEN_BUILD /web/* /web/*
+COPY --from=MAVEN_BUILD /admin/** /admin/
+COPY --from=MAVEN_BUILD /services/** /services/
+COPY --from=MAVEN_BUILD /utils/** /utils/
+COPY --from=MAVEN_BUILD /web/** /web/
 
 # set the startup command to execute the jar
 CMD ["java", "-jar", "/admin/target/admin-1.0.0.jar"]
