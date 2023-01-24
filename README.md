@@ -50,7 +50,7 @@ git clone https://github.com/sealiv/maven-gradle-tool.git
 mvn clean package
 
 # run Admin service
-java -jar admin/target/admin-1.0.0.jar 
+java -jar output/admin-1.0.0.jar 
 
 # run tests
 mvn test 
